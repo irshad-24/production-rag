@@ -20,5 +20,5 @@ langchain_groq
 numpy
 requests
 beautifulsoup4
-
+langchain-google-vertexai
 langchain-groq
