@@ -12,3 +12,5 @@ pillow
 python-dotenv
 fastapi
 uvicorn
+langchain-qdrant
+langchain-core
