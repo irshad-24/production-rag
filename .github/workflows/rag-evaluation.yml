@@ -28,7 +28,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
+          
+      - name: Build Qdrant vector store
+        run: python app/vector_store.py
 
       - name: Clear previous generated evaluation data
         run: |
