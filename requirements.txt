@@ -16,6 +16,9 @@ langchain-qdrant
 langchain-core
 langchain-huggingface
 langchain-community
+langchain_groq
 numpy
 requests
 beautifulsoup4
+
+langchain-groq
