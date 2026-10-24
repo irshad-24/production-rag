@@ -14,3 +14,8 @@ fastapi
 uvicorn
 langchain-qdrant
 langchain-core
+langchain-huggingface
+langchain-community
+numpy
+requests
+beautifulsoup4
