@@ -1,0 +1,34 @@
+[
+    {
+        "question": "What are the 7 Cs of effective communication?",
+        "ground_truth": "The 7 Cs of effective communication are Clear, Coherent, Concise, Complete, Concrete, Courteous, and Correct."
+    },
+    {
+        "question": "What is business communication?",
+        "ground_truth": "Business communication is the flow of information and perception either within a business organization or outside the organization among different parties."
+    },
+    {
+        "question": "What are the objectives of communication?",
+        "ground_truth": "The objectives of communication include giving and receiving information, providing advice, educating and training customers, issuing orders and instructions, persuading the target audience, receiving suggestions, motivating and integrating people, and relating and entertaining."
+    },
+    {
+        "question": "What is feedback in communication?",
+        "ground_truth": "Feedback is the response from the audience that helps the communicator know whether the message has reached the target audience and whether it has been accepted."
+    },
+    {
+        "question": "What is noise in communication?",
+        "ground_truth": "Noise refers to any obstruction caused by the sender, message, or receiver during the communication process, such as a bad telephone connection, faulty encoding or decoding, an inattentive receiver, or poor understanding."
+    },
+    {
+        "question": "What are the two types of verbal communication?",
+        "ground_truth": "The two types of verbal communication are oral communication and written communication."
+    },
+    {
+        "question": "What are the 7 Cs that relate to making communication clear and effective?",
+        "ground_truth": "The 7 Cs are Clear, Coherent, Concise, Complete, Concrete, Courteous, and Correct."
+    },
+    {
+        "question": "What are some barriers to effective communication?",
+        "ground_truth": "Barriers to effective communication include noise, time, language, disability, lack of interest, too many questions, distraction, distance, and discomfort with the topic."
+    }
+]

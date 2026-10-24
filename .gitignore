@@ -1,0 +1,42 @@
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python environment
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local databases and generated artifacts
+.qdrant/
+chroma_db/
+*.log
+
+# Temporary files
+*.tmp
+
+# Local Qdrant database
+qdrant_data/
+
+
+# Local data and rendered images
+data/chunks.json
+data/unified_chunks.json
+data/visual_chunks.json
+data/rendered_pages/
+
+# Generated evaluation outputs
+evaluation/evaluation_data.json
+evaluation/evaluation_data_backup.json
+evaluation/evaluation_state.json
+evaluation/ragas_scores.json
+evaluation/ragas_scores_backup.json
+evaluation/ragas_scores_old_run.json
