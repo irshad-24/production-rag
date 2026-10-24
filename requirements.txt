@@ -1,6 +1,14 @@
-ok so before moving forward i want to save our work like what we have done till what is our ultimate mail goal of this project i mean we should not forgot what we are building what problem our current version have what problem we have solved how much work has done
 
-
-
-problem
-we are decomposing simplee question also like 'what is bm25'
+qdrant-client
+sentence-transformers
+rank-bm25
+FlagEmbedding
+groq
+ragas==0.4.3
+datasets
+pandas
+pymupdf
+pillow
+python-dotenv
+fastapi
+uvicorn
