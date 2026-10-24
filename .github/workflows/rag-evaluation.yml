@@ -32,8 +32,8 @@ jobs:
 
       - name: Clear previous generated evaluation data
         run: |
-        rm -f evaluation/evaluation_state.json
-        rm -f evaluation/evaluation_data.json
+          rm -f evaluation/evaluation_state.json
+          rm -f evaluation/evaluation_data.json
 
       - name: Generate fresh RAG answers
         env:
