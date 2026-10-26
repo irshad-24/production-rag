@@ -198,21 +198,18 @@ def hybrid_search(
     )
 
 
+
 def expand_hybrid_context(
     chunks,
     hybrid_results,
-    neighbor_count=1
+    neighbor_count=1,
 ):
-
     expanded_chunks = {}
-
-    # Lookup chunks directly by chunk_id
     chunk_lookup = {
         chunk["metadata"]["chunk_id"]: chunk
         for chunk in chunks
     }
 
-    # Get only numeric text chunk IDs
     text_chunk_ids = sorted(
         chunk_id
         for chunk_id in chunk_lookup
@@ -220,61 +217,51 @@ def expand_hybrid_context(
     )
 
     for chunk in hybrid_results:
-
         chunk_id = chunk["metadata"]["chunk_id"]
 
-        # ------------------------------------------
-        # VISUAL / NON-TEXT CHUNK
-        # ------------------------------------------
-
-        if not isinstance(chunk_id, int):
-
-            if chunk_id in chunk_lookup:
-                expanded_chunks[
-                    chunk_id
-                ] = chunk_lookup[
-                    chunk_id
-                ]
-
+        # Always preserve original retrieval results.
+        if chunk_id not in chunk_lookup:
             continue
 
-        # ------------------------------------------
-        # TEXT CHUNK
-        # ------------------------------------------
+        expanded_chunks[chunk_id] = chunk_lookup[chunk_id]
+
+        if not isinstance(chunk_id, int):
+            continue
 
         try:
             position = text_chunk_ids.index(chunk_id)
         except ValueError:
             continue
 
-        start = max(
-            0,
-            position - neighbor_count
+        content = (
+            chunk_lookup[chunk_id].get("page_content", "")
+            or chunk_lookup[chunk_id].get("text", "")
+        ).strip()
+
+        # Expand only when the chunk may introduce continuation.
+        needs_continuation = (
+            content.endswith(":")
+            or content.endswith(",")
+            or (
+                content
+                and content[-1] not in ".!?\"')]};"
+            )
         )
 
-        end = min(
-            len(text_chunk_ids),
-            position + neighbor_count + 1
-        )
+        if not needs_continuation:
+            continue
 
-        for neighbor_position in range(
-            start,
-            end
-        ):
+        for offset in range(1, neighbor_count + 1):
+            neighbor_position = position + offset
 
-            neighbor_id = text_chunk_ids[
-                neighbor_position
-            ]
+            if neighbor_position >= len(text_chunk_ids):
+                break
 
-            expanded_chunks[
-                neighbor_id
-            ] = chunk_lookup[
-                neighbor_id
-            ]
+            neighbor_id = text_chunk_ids[neighbor_position]
+            expanded_chunks[neighbor_id] = chunk_lookup[neighbor_id]
 
-    return list(
-        expanded_chunks.values()
-    )
+    return list(expanded_chunks.values())
+
 
 def hybrid_search_with_reranking(
     vector_store,

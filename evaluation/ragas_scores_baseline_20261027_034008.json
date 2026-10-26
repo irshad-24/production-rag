@@ -1,0 +1,170 @@
+{
+  "model": "openai/gpt-oss-20b",
+  "total_samples": 8,
+  "metrics": {
+    "faithfulness": {
+      "status": "completed",
+      "successful": 8,
+      "failed": 0,
+      "average": 0.9904,
+      "scores": [
+        {
+          "sample_index": 0,
+          "score": 1.0
+        },
+        {
+          "sample_index": 1,
+          "score": 0.9230769230769231
+        },
+        {
+          "sample_index": 2,
+          "score": 1.0
+        },
+        {
+          "sample_index": 3,
+          "score": 1.0
+        },
+        {
+          "sample_index": 4,
+          "score": 1.0
+        },
+        {
+          "sample_index": 5,
+          "score": 1.0
+        },
+        {
+          "sample_index": 6,
+          "score": 1.0
+        },
+        {
+          "sample_index": 7,
+          "score": 1.0
+        }
+      ],
+      "failed_samples": []
+    },
+    "answer_relevancy": {
+      "status": "completed",
+      "successful": 8,
+      "failed": 0,
+      "average": 0.9723,
+      "scores": [
+        {
+          "sample_index": 0,
+          "score": 1.0
+        },
+        {
+          "sample_index": 1,
+          "score": 0.9999999999999999
+        },
+        {
+          "sample_index": 2,
+          "score": 0.9999999999999998
+        },
+        {
+          "sample_index": 3,
+          "score": 0.9999999999999998
+        },
+        {
+          "sample_index": 4,
+          "score": 0.9621682634162648
+        },
+        {
+          "sample_index": 5,
+          "score": 1.0
+        },
+        {
+          "sample_index": 6,
+          "score": 0.9361532897798365
+        },
+        {
+          "sample_index": 7,
+          "score": 0.8798415877287862
+        }
+      ],
+      "failed_samples": []
+    },
+    "context_precision": {
+      "status": "completed",
+      "successful": 8,
+      "failed": 0,
+      "average": 0.8413,
+      "scores": [
+        {
+          "sample_index": 0,
+          "score": 0.9999999999
+        },
+        {
+          "sample_index": 1,
+          "score": 0.9999999999666667
+        },
+        {
+          "sample_index": 2,
+          "score": 0.5833333333041666
+        },
+        {
+          "sample_index": 3,
+          "score": 0.8666666666377778
+        },
+        {
+          "sample_index": 4,
+          "score": 0.8333333332916666
+        },
+        {
+          "sample_index": 5,
+          "score": 0.642857142825
+        },
+        {
+          "sample_index": 6,
+          "score": 0.9999999999
+        },
+        {
+          "sample_index": 7,
+          "score": 0.8041666666465626
+        }
+      ],
+      "failed_samples": []
+    },
+    "context_recall": {
+      "status": "completed",
+      "successful": 8,
+      "failed": 0,
+      "average": 1.0,
+      "scores": [
+        {
+          "sample_index": 0,
+          "score": 1.0
+        },
+        {
+          "sample_index": 1,
+          "score": 1.0
+        },
+        {
+          "sample_index": 2,
+          "score": 1.0
+        },
+        {
+          "sample_index": 3,
+          "score": 1.0
+        },
+        {
+          "sample_index": 4,
+          "score": 1.0
+        },
+        {
+          "sample_index": 5,
+          "score": 1.0
+        },
+        {
+          "sample_index": 6,
+          "score": 1.0
+        },
+        {
+          "sample_index": 7,
+          "score": 1.0
+        }
+      ],
+      "failed_samples": []
+    }
+  }
+}

@@ -4,6 +4,7 @@ import json
 import sys
 from pathlib import Path
 
+
 # Allow imports from app/
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "app"))
@@ -12,7 +13,7 @@ from chunk_store import load_unified_chunks
 from vector_store import load_vector_store
 from bm25 import create_bm25_index
 from reranker import load_reranker, rerank_documents
-from retrieval import hybrid_search
+from retrieval import hybrid_search,expand_hybrid_context
 from query_decomposer import decompose_query
 from rag import generate_answer
 
@@ -21,7 +22,7 @@ DATASET_PATH = ROOT / "evaluation" / "dataset.json"
 OUTPUT_PATH = ROOT / "evaluation" / "evaluation_data.json"
 STATE_PATH = ROOT / "evaluation" / "evaluation_state.json"
 
-PIPELINE_VERSION = "context-selection-v2"
+PIPELINE_VERSION = "context-selection-v4-topk2"
 
 
 def load_json(path):
@@ -131,13 +132,24 @@ def run_rag(query, chunks, vector_store, bm25, reranker):
             reranker=reranker,
             query=sub_question,
             documents=hybrid_results,
-            top_k=3,
+            top_k=2,
         )
 
         for chunk, score in reranked_results:
             chunk_id = chunk["metadata"]["chunk_id"]
             selected_chunks[chunk_id] = chunk
+    
+    expanded_chunks = expand_hybrid_context(
+        chunks=chunks,
+        hybrid_results=list(selected_chunks.values()),
+        neighbor_count=1,
+    )
 
+    selected_chunks = {
+        chunk["metadata"]["chunk_id"]: chunk
+        for chunk in expanded_chunks
+    }
+    
     class SimpleDocument:
         def __init__(self, page_content, metadata):
             self.page_content = page_content
