@@ -40,3 +40,13 @@ evaluation/evaluation_state.json
 evaluation/ragas_scores.json
 evaluation/ragas_scores_backup.json
 evaluation/ragas_scores_old_run.json
+
+
+# URL and CSV ingestion test data
+data/url_chunks.json
+data/test_data.csv
+
+# Local Qdrant backup
+qdrant_data_backup/
+
+# Local retrieval test artifacts

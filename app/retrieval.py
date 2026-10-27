@@ -1,5 +1,5 @@
-from bm25 import search_bm25
-from reranker import rerank_documents
+from app.bm25 import search_bm25
+from app.reranker import rerank_documents
 
 
 def retrieve_with_context(

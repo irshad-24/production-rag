@@ -75,6 +75,12 @@ def load_unified_chunks():
 
         return json.load(file)
 
+def load_url_chunks():
+    if not Path("data/url_chunks.json").exists():
+        return []
+
+    with open("data/url_chunks.json", "r", encoding="utf-8") as file:
+        return json.load(file)
 
 def create_unified_chunks():
 
@@ -144,6 +150,34 @@ def create_unified_chunks():
 
             "metadata": metadata
         })
+    # -------------------------
+    # URL CHUNKS
+    # -------------------------
+
+    url_chunks = load_url_chunks()
+
+    for chunk in url_chunks:
+        unified_chunks.append({
+            "page_content": chunk["page_content"],
+            "metadata": {
+                **chunk.get("metadata", {}),
+                "source_type": "url",
+            },
+        })
+    # CSV CHUNKS
+    from app.csv_ingestion import load_and_split_csv
+
+    csv_chunks = load_and_split_csv("data/test_data.csv")
+
+    for chunk in csv_chunks:
+        unified_chunks.append({
+            "page_content": chunk.page_content,
+            "metadata": {
+                **chunk.metadata,
+                "source_type": "csv",
+            },
+        })
+
 
     # -------------------------
     # SAVE

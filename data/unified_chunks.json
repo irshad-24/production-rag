@@ -916,5 +916,41 @@
       "chunk_id": "visual_5",
       "page": 22
     }
+  },
+  {
+    "page_content": "Example Domain This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.",
+    "metadata": {
+      "source_type": "url",
+      "source": "https://example.com/",
+      "title": "Example Domain",
+      "chunk_id": "url_0"
+    }
+  },
+  {
+    "page_content": "name: Aisha\nrole: ML Engineer\nskill: Python",
+    "metadata": {
+      "source_type": "csv",
+      "source": "data\\test_data.csv",
+      "row": 2,
+      "chunk_id": "csv_0"
+    }
+  },
+  {
+    "page_content": "name: Rahul\nrole: Data Analyst\nskill: SQL",
+    "metadata": {
+      "source_type": "csv",
+      "source": "data\\test_data.csv",
+      "row": 3,
+      "chunk_id": "csv_1"
+    }
+  },
+  {
+    "page_content": "name: Neha\nrole: AI Engineer\nskill: Generative AI",
+    "metadata": {
+      "source_type": "csv",
+      "source": "data\\test_data.csv",
+      "row": 4,
+      "chunk_id": "csv_2"
+    }
   }
 ]
